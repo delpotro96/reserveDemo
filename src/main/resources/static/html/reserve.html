@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/reserve.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+
+<fieldset>
+    <legend>예약</legend>
+
+    <!--            매장 정보 받아오는 곳-->
+
+    <div class="form-group">
+        <label for="exampleTextarea" class="form-label mt-4">매장 정보</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3">
+                    이곳에 매장 정보를 불러옵니다이곳에 매장 정보를 불러옵니다이곳에 매장 정보를 불러옵니다이곳에 매장 정보를 불러옵니다이곳에 매장 정보를 불러옵니다이곳에 매장 정보를 불러옵니다
+
+                </textarea>
+    </div>
+
+    <!--            예약자 기본 정보는 사용자 정보 DB에서 받아옴-->
+    <div class="form-group">
+        <label class="form-label mt-4">예약자 이름</label>
+        <input type="text" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+        <label class="form-label mt-4">예약자 연락처</label>
+        <input type="text" class="form-control" id="phone">
+    </div>
+    <div class="form-group">
+        <label class="form-label mt-4">예약자 이메일</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label class="form-label mt-4">비밀번호</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+
+    <!--            예약자 내용이 아닌 예약 내용-->
+    <!--                        일단 날짜랑 시간 선택하는 곳 대충 넘어감-->
+    <div class="form-group">
+        <label class="form-label mt-4">예약 날짜 및 시간</label>
+        <input type="text" class="form-control" id="reserveTime">
+    </div>
+    <div class="form-group">
+        <label class="form-label mt-4">예약 인원수 </label>
+        <input type="text" class="form-control" id="reserveNumber">
+    </div>
+    <button id="reserveBtn" class="btn btn-primary">Submit</button>
+</fieldset>
+
+</body>
+</html>
