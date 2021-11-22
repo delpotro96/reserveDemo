@@ -9,5 +9,9 @@
         insert into temp(name, email, password, reservetime, phone, reservenumber)
         values (#{name}, #{email}, #{password}, #{reserveTime}, #{phone}, #{reserveNumber})
     </insert>
+    
+    <select id="detailReserve" resultType="reserveVO">
+        select *from temp where reserveCode = #{reserveCode}
+    </select>
 
 </mapper>

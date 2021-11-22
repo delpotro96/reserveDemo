@@ -16,9 +16,8 @@ public class ReserveService {
         System.out.println(reserveVO);
     }
 
-    public void detailReserve(int reserveCode) {
-        System.out.println(reserveCode);
-        //return reserveDAO.detailReserve(reserveCode);
+    public ReserveVO detailReserve(int reserveCode) {
+        return reserveDAO.detailReserve(reserveCode);
     }
 
     public void deleteReserve(int reserveCode) {
