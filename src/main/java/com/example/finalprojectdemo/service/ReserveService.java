@@ -3,7 +3,10 @@ package com.example.finalprojectdemo.service;
 import com.example.finalprojectdemo.dao.ReserveDAO;
 import com.example.finalprojectdemo.vo.ReserveVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ReserveService {
@@ -16,7 +19,7 @@ public class ReserveService {
         System.out.println(reserveVO);
     }
 
-    public ReserveVO detailReserve(int reserveCode) {
+    public List<ReserveVO> detailReserve(int reserveCode) throws DataAccessException {
         return reserveDAO.detailReserve(reserveCode);
     }
 

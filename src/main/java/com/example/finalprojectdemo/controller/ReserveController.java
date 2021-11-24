@@ -4,9 +4,14 @@ import com.example.finalprojectdemo.service.ReserveService;
 import com.example.finalprojectdemo.vo.ReserveVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class ReserveController {
@@ -23,11 +28,15 @@ public class ReserveController {
     }
 
     //예약 번호 받아서 예약 상세페이지(showReserve.jsp)로 보냄냄
-    @PostMapping("detailReserve")
-    public String showReserve(int reserveCode) {
-        reserveService.detailReserve(reserveCode);
+    @GetMapping("/detailReserve")
+    public void showReserve(int reserveCode, Model model) {
+        List<ReserveVO> detailreserve = reserveService.detailReserve(reserveCode);
         System.out.println("try");
-        return "detailReserve";
+//        ModelAndView mav = new ModelAndView("detailReserve");
+//        mav.addObject("detailReserve", detailreserve);
+        model.addAttribute("detailReserve", reserveService.detailReserve(reserveCode));
+        System.out.println(detailreserve);
+
     }
 
     @PostMapping("deleteReserve")
@@ -35,5 +44,10 @@ public class ReserveController {
     public void deleteReserve(int reserveCode) {
         System.out.println(reserveCode);
         reserveService.deleteReserve(reserveCode);
+    }
+
+    @RequestMapping("/temp")
+    public String temp(){
+        return "temp";
     }
 }
