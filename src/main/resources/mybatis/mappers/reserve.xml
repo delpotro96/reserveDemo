@@ -9,6 +9,10 @@
         insert into temp(name, email, password, reservetime, phone, reservenumber)
         values (#{name}, #{email}, #{password}, #{reserveTime}, #{phone}, #{reserveNumber})
     </insert>
+
+    <select id="showReserve" resultType="reserveVO">
+        select *from temp where name = "java";
+    </select>
     
     <select id="detailReserve" resultType="reserveVO">
         select *from temp where reserveCode = #{reserveCode}

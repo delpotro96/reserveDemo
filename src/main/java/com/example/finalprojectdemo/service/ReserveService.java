@@ -19,7 +19,12 @@ public class ReserveService {
         System.out.println(reserveVO);
     }
 
-    public List<ReserveVO> detailReserve(int reserveCode) throws DataAccessException {
+    public List<ReserveVO> showReserve(String name){
+        return reserveDAO.showReserve(name);
+    }
+
+
+    public ReserveVO detailReserve(int reserveCode) throws DataAccessException {
         return reserveDAO.detailReserve(reserveCode);
     }
 

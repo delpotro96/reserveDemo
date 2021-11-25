@@ -65,50 +65,48 @@
     </style>
 </head>
 <body>
-<h1>detail Reserve Page 임다.</h1>
+<h1>Show Reserve Page 임다.</h1>
 
 <div class="table_wrap">
     <a href="/board/enroll" class="top_btn">게시판 등록</a>
     <table>
         <thead>
         <tr>
-            <th class="bno_width">번호</th>
+            <th class="bno_width">예약번호</th>
             <th class="title_width">제목</th>
             <th class="writer_width">작성자</th>
             <th class="regdate_width">작성일</th>
             <th class="updatedate_width">수정일</th>
         </tr>
         </thead>
-        <tr>
-            <td><c:out value="${detailReserve.reserveCode}"/></td>
-            <td><c:out value="${detailReserve.name}"/></td>
-            <td><c:out value="${detailReserve.email}"/></td>
-            <td><c:out value="${detailReserve.password}"/></td>
-            <td><c:out value="${detailReserve.phone}"/></td>
-        </tr>
+        <c:forEach items="${list}" var="list">
+            <tr>
+                <td><c:out value="${list.reserveCode}"/></td>
+                <td>
+                    <a class="move" href='<c:out value="${list.reserveCode}"/>'>
+                        <c:out value="${list.name}"/>
+                    </a>
+                </td>
+                <td><c:out value="${list.email}"/></td>
+                <td><c:out value="${list.password}"/></td>
+                <td><c:out value="${list.phone}"/></td>
+            </tr>
+        </c:forEach>
     </table>
+    <form id="moveForm" method="get"></form>
 </div>
 
 <script>
     $(document).ready(function () {
+        let moveForm = $("#moveForm")
 
-        let result = '<c:out value="${result}"/>';
-
-        checkAlert(result);
-
-        function checkAlert(result) {
-
-            if (result === '') {
-                return;
-            }
-
-            if (result === "enrol success") {
-                alert("등록이 완료되었습니다.");
-            }
-
-        }
-
-    });
+        $(".move").on("click", function (e) {
+            e.preventDefault()
+            moveForm.append("<input type='hidden' name='reserveCode' value='" + $(this).attr("href") + "'>");
+            moveForm.attr("action", "/detailReserve");
+            moveForm.submit();
+        })
+    })
 </script>
 
 </body>

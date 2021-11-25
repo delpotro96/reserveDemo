@@ -12,8 +12,10 @@ import java.util.List;
 public interface ReserveDAO {
     public void setReserve(ReserveVO reserveVO);
 
+    public List<ReserveVO> showReserve(String name);
+
     //예약 코드로 받아옴
-    public List<ReserveVO> detailReserve(int reserveCode) throws DataAccessException;
+    public ReserveVO detailReserve(int reserveCode) throws DataAccessException;
 
     public void deleteReserve(int reserveCode);
 }
